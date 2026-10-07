@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if question and candidate %}
+<div class="interview-container">
+    <div class="interview-header">
+        <div class="interview-meta">
+            <span class="badge badge-role">{{ candidate.get('role', 'General') }}</span>
+            <span class="badge badge-cat">{{ question.get('category', 'Technical') }}</span>
+            <span class="badge badge-diff">{{ question.get('difficulty', 'Medium') }}</span>
+        </div>
+        <div class="progress-info">
+            <span>Question {{ index }} of {{ total }}</span>
+        </div>
+    </div>
+
+    <div class="progress-bar-container">
+        <div class="progress-bar" style="width: calc({{ index }} / {{ total }} * 100%);"></div>
+    </div>
+
+    <div class="question-card">
+        <h2 class="question-text">{{ question.get('question', '') }}</h2>
+        <p class="question-hint">Provide a detailed explanation. Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to submit.</p>
+    </div>
+
+    <form action="{{ url_for('answer') }}" method="POST" id="interviewForm">
+        <div class="form-group">
+            <textarea name="answer" id="answerArea" rows="8" placeholder="Type your response here..." autofocus required></textarea>
+        </div>
+
+        <div class="interview-actions">
+            <button type="submit" id="submitBtn" class="btn btn-primary">
+                Submit Answer &amp; Next &rarr;
+            </button>
+        </div>
+    </form>
+</div>
+{% else %}
+<div class="form-container">
+    <h2>Session Expired or Invalid</h2>
+    <p>Please register candidate details first to start an interview session.</p>
+    <a href="{{ url_for('candidate') }}" class="btn btn-primary">Go to Registration &rarr;</a>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="results-container">
+    <div class="results-header-card">
+        <div class="candidate-summary">
+            <h2>Evaluation Report: {{ candidate.name }}</h2>
+            <p><strong>Role:</strong> {{ candidate.role }} | <strong>Experience:</strong> {{ candidate.experience }}</p>
+            <p><strong>Email:</strong> {{ candidate.email }}</p>
+        </div>
+
+        <div class="score-summary-box {{ recommendation|lower|replace(' ', '-') }}">
+            <div class="overall-score">{{ overall_score }}<span>/100</span></div>
+            <div class="recommendation-badge">{{ recommendation }}</div>
+        </div>
+    </div>
+
+    <div class="analysis-grid">
+        <div class="analysis-card strength-card">
+            <h3>Key Strengths (>= 80)</h3>
+            {% if strengths %}
+                <ul>
+                {% for s in strengths %}
+                    <li><strong>{{ s.question_id.upper() }}:</strong> Scored {{ s.final_score }}% — High semantic and keyword alignment.</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p class="neutral-msg">No individual questions scored 80% or above. Focus on expanding technical detail in future responses.</p>
+            {% endif %}
+        </div>
+
+        <div class="analysis-card improvement-card">
+            <h3>Areas for Improvement (< 65)</h3>
+            {% if improvements %}
+                <ul>
+                {% for imp in improvements %}
+                    <li><strong>{{ imp.question_id.upper() }}:</strong> Scored {{ imp.final_score }}% — {{ imp.feedback }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p class="positive-msg">Overall performance was consistent across the interview with no critical low-scoring sections.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <h3 class="section-title">Question Breakdown</h3>
+
+    <div class="questions-breakdown">
+        {% for a in answers %}
+        <div class="breakdown-card">
+            <div class="breakdown-header">
+                <h4>{{ loop.index }}. {{ a.question_text }}</h4>
+                <div class="breakdown-final-score">Score: <strong>{{ a.final_score }}%</strong></div>
+            </div>
+
+            <div class="candidate-response-box">
+                <strong>Candidate Answer:</strong>
+                <p>{{ a.answer }}</p>
+            </div>
+
+            <div class="metrics-row">
+                <div class="metric-pill">Semantic Match: <strong>{{ a.semantic_score }}%</strong></div>
+                <div class="metric-pill">Keyword Match: <strong>{{ a.keyword_score }}%</strong></div>
+                <div class="metric-pill">Completeness: <strong>{{ a.completeness_score }}%</strong></div>
+            </div>
+
+            <div class="feedback-box">
+                <strong>AI Feedback:</strong> {{ a.feedback }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="results-actions">
+        <a href="{{ url_for('reset') }}" class="btn btn-primary">Start New Interview Session</a>
+    </div>
+</div>
+{% endblock %}

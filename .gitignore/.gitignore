@@ -1,0 +1,18 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+
+# Database files
+database/iris.db
+*.db
+
+# VS Code settings
+.vscode/
+
+# Environment / Secrets
+.env

@@ -1,0 +1,101 @@
+{
+  "roles": [
+    {
+      "role": "Software Developer",
+      "questions": [
+        {
+          "id": "sd_1",
+          "category": "Core OOP",
+          "difficulty": "Medium",
+          "question": "Explain the key differences between Object-Oriented Programming (OOP) and Functional Programming (FP).",
+          "reference_answer": "OOP organizes code around objects containing data and methods, emphasizing encapsulation, inheritance, and polymorphism. Functional programming organizes code around pure functions, avoiding shared state and mutable data.",
+          "keywords": ["object", "class", "encapsulation", "inheritance", "polymorphism", "pure function", "immutability", "state"]
+        },
+        {
+          "id": "sd_2",
+          "category": "Data Structures",
+          "difficulty": "Medium",
+          "question": "How does a Hash Table achieve O(1) average time complexity for search operations, and how are collisions handled?",
+          "reference_answer": "Hash tables use a hash function to map key values to index buckets in memory. Collisions occur when two keys map to the same bucket and are resolved using technique like chaining or open addressing.",
+          "keywords": ["hash function", "index", "bucket", "chaining", "open addressing", "collision", "O(1)", "time complexity"]
+        },
+        {
+          "id": "sd_3",
+          "category": "Database Architecture",
+          "difficulty": "Hard",
+          "question": "What are the ACID properties in database transactions, and why are they critical for reliability?",
+          "reference_answer": "ACID stands for Atomicity, Consistency, Isolation, and Durability. Atomicity ensures all-or-nothing execution. Consistency ensures data validity rules. Isolation prevents concurrent transaction side-effects. Durability guarantees committed data survives system crashes.",
+          "keywords": ["atomicity", "consistency", "isolation", "durability", "transaction", "commit", "rollback", "concurrency"]
+        },
+        {
+          "id": "sd_4",
+          "category": "Web Protocols",
+          "difficulty": "Easy",
+          "question": "Describe the main differences between HTTP and HTTPS protocols.",
+          "reference_answer": "HTTP transfers data in plain text over port 80. HTTPS encrypts traffic using TLS or SSL over port 443, ensuring confidentiality, data integrity, and server authentication.",
+          "keywords": ["encryption", "TLS", "SSL", "port 80", "port 443", "plain text", "certificate", "security"]
+        },
+        {
+          "id": "sd_5",
+          "category": "Software Architecture",
+          "difficulty": "Medium",
+          "question": "What is the REST architectural style, and what are its key principles?",
+          "reference_answer": "REST is an architectural style for network applications using HTTP. Key constraints include client-server separation, statelessness, cacheability, uniform interface, and layered architecture.",
+          "keywords": ["stateless", "client-server", "HTTP methods", "GET", "POST", "JSON", "resource", "endpoint"]
+        }
+      ]
+    },
+    {
+      "role": "Data Analyst",
+      "questions": [
+        {
+          "id": "da_1",
+          "category": "SQL & Queries",
+          "difficulty": "Medium",
+          "question": "What is the difference between WHERE and HAVING clauses in SQL?",
+          "reference_answer": "WHERE filters rows before aggregation occurs, whereas HAVING filters aggregated group results after GROUP BY is applied.",
+          "keywords": ["WHERE", "HAVING", "GROUP BY", "aggregation", "filter", "rows", "COUNT", "SUM"]
+        }
+      ]
+    },
+    {
+      "role": "AI / ML Engineer",
+      "questions": [
+        {
+          "id": "aiml_1",
+          "category": "Machine Learning",
+          "difficulty": "Medium",
+          "question": "Explain overfitting and underfitting in machine learning models and how to prevent them.",
+          "reference_answer": "Overfitting occurs when a model learns training data noise and fails to generalize. Underfitting happens when a model is too simple. Overfitting is prevented via regularization, cross-validation, or dropout.",
+          "keywords": ["overfitting", "underfitting", "generalization", "regularization", "cross-validation", "variance", "bias"]
+        }
+      ]
+    },
+    {
+      "role": "Data Engineer",
+      "questions": [
+        {
+          "id": "de_1",
+          "category": "ETL Pipelines",
+          "difficulty": "Medium",
+          "question": "Explain the difference between ETL and ELT data processing pipelines.",
+          "reference_answer": "ETL transforms data before loading into a target database, while ELT loads raw data first and transforms it inside scalable cloud data warehouses.",
+          "keywords": ["extract", "transform", "load", "data warehouse", "raw data", "staging", "pipeline"]
+        }
+      ]
+    },
+    {
+      "role": "Systems Analyst",
+      "questions": [
+        {
+          "id": "sa_1",
+          "category": "System Design",
+          "difficulty": "Medium",
+          "question": "What is the purpose of Functional Requirements versus Non-Functional Requirements in software design?",
+          "reference_answer": "Functional requirements define what the system should do or perform. Non-functional requirements specify quality attributes like performance, security, availability, and scalability.",
+          "keywords": ["functional", "non-functional", "requirements", "scalability", "security", "performance", "system design"]
+        }
+      ]
+    }
+  ]
+}

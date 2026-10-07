@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-badge">Academic Demonstration Prototype</div>
+    <h1 class="hero-title">Meet Your AI Interviewer</h1>
+    <p class="hero-subtitle">
+        IRIS evaluates technical candidate responses deterministically using Natural Language Processing, TF-IDF vectorization, cosine similarity, and keyword coverage.
+    </p>
+    
+    <div class="hero-cta">
+        <a href="{{ url_for('candidate') }}" class="btn btn-primary btn-large">Begin Candidate Assessment →</a>
+    </div>
+</div>
+
+<div class="features-grid">
+    <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Role-Specific Evaluation</h3>
+        <p>Targeted interview sets for Software Developers, Data Analysts, AI/ML, Data Engineers, and Systems Analysts.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Deterministic NLP Scoring</h3>
+        <p>Uses weighted TF-IDF similarity (50%), domain keyword matching (30%), and completeness metrics (20%).</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Automated Decision Report</h3>
+        <p>Generates detailed scorecard dashboard with Strengths, Weaknesses, and Recruitment Recommendations.</p>
+    </div>
+</div>
+{% endblock %}

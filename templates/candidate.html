@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+    <div class="form-header">
+        <h2>Candidate Registration</h2>
+        <p>Fill in your profile details and target engineering role to initiate the IRIS interview session.</p>
+    </div>
+
+    <form action="{{ url_for('start') }}" method="POST" class="candidate-form">
+        <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Alex Mercer" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="alex.mercer@college.edu" required>
+        </div>
+
+        <div class="form-group">
+            <label for="role">Target Job Role *</label>
+            <select id="role" name="role" required>
+                <option value="" disabled selected>-- Select Engineering Role --</option>
+                {% for role in roles %}
+                    <option value="{{ role }}">{{ role }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="experience">Experience Level *</label>
+            <select id="experience" name="experience" required>
+                <option value="" disabled selected>-- Select Experience --</option>
+                <option value="Fresher (0-1 Yrs)">Fresher (0-1 Yrs)</option>
+                <option value="Internship Experience">Internship Experience</option>
+                <option value="1-2 Yrs Technical Experience">1-2 Yrs Technical Experience</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Start 5-Question Interview →</button>
+    </form>
+</div>
+{% endblock %}
